@@ -2,7 +2,7 @@
 
 ## Description
 
-The application has been tested only on one actual iOS device -- iPhone SE (and in simulators)
+The application has been tested only on two actual iOS device -- iPhone SE iOS12.0 and iPad iOS9.0 (and in simulators)
 
 [ScreenRecording](https://youtu.be/Ne8zId977FI)
 
