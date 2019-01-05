@@ -23,7 +23,6 @@ extension UIAlertController {
                 handler!()
             }
         }
-        
         if handler != nil {
             self.addActionWith(title: "Cancel", style: .cancel)
         }

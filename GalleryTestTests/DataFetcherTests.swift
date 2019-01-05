@@ -72,7 +72,7 @@ class DataFetcherTests: XCTestCase {
     
     func testGetValidMimeTypes() {
         let promise = expectation(description: "MimeTypes: \(URL.mimeTypes)")
-        let imageURL = URL(string: "http://www.xiag.ch/share/testtask/11.jpg")!
+        let imageURL = URL(string: "http://www.xiag.ch/share/testtask/10.jpg")!
         
         dataFetcher = DataFetcher(withImageURL: imageURL) { (request: URLRequest?, data: Data?, httpResponse: HTTPURLResponse?) in
             

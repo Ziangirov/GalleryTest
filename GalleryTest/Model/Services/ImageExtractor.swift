@@ -14,6 +14,7 @@ final class ImageExtractor {
     
     init(_ completion: @escaping ([Image]?) -> Void) {
         handler = completion
+        
         try? extractData()
     }
     
