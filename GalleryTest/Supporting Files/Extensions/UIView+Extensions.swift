@@ -14,28 +14,14 @@ extension UIColor {
     
 }
 
-extension UIColor {
-    enum Identifier: String {
-        case clover, lead
-    }
-    
-    convenience init(_ asset: Identifier) {
-        self.init(named: asset.rawValue)!
-    }
-    
-}
-
 extension UIView {
-    func animatedAppearing() {
-        let cellTransformation = CATransform3DTranslate(CATransform3DIdentity, -150, 80, 0)
-        self.layer.transform = cellTransformation
-        
+    func appearAnimated() {
+        self.alpha = 0
         UIView.animate(withDuration: 0.5,
                        delay: 0,
                        options: [.allowUserInteraction, .preferredFramesPerSecond60],
                        animations: { [weak self] in
                         self?.alpha = 1
-                        self?.layer.transform = CATransform3DIdentity
         })
     }
     

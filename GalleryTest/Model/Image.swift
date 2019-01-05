@@ -19,12 +19,8 @@ final class Image: NSObject, Codable {
     let thumbnailURL: String
     @objc let title: String
     
-    var imgURL: URL? {
-        return !imageURL.isEmpty ? URL(string: imageURL) : nil
-    }
-    var tnURL: URL? {
-        return !thumbnailURL.isEmpty ? URL(string: thumbnailURL) : nil
-    }
+    var imgURL: URL? { return !imageURL.isEmpty ? URL(string: imageURL) : nil }
+    var tnURL: URL? { return !thumbnailURL.isEmpty ? URL(string: thumbnailURL) : nil }
     
     init(imageURL: String, thumbnailURL: String, title: String) {
         self.imageURL = imageURL
@@ -44,10 +40,12 @@ final class Image: NSObject, Codable {
             fatalError("A title did not exist.")
         }
         title = decodedTitle
+        
         guard let decodedImageURL = aDecoder.decodeObject(forKey: CodingKeys.imageURL.rawValue) as? String else {
             fatalError("A imageURL did not exist.")
         }
         imageURL = decodedImageURL
+        
         guard let decodedThumbnailURL = aDecoder.decodeObject(forKey: CodingKeys.thumbnailURL.rawValue) as? String else {
             fatalError("A thumbnailURL did not exist.")
         }

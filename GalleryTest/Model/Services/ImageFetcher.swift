@@ -10,10 +10,15 @@ import UIKit
 
 final class ImageFetcher {
     private var handler: (UIImage?) -> Void
-    private var dataFetcher: DataFetcher!
+    private var dataFetcher: DataFetcher?
+    
+    func cancelLoading() {
+        dataFetcher?.cancelLoading()
+    }
     
     init(withImageURL url: URL, handler: @escaping (UIImage?) -> Void) {
         self.handler = handler
+        
         fetchURL(url)
     }
     
@@ -32,17 +37,16 @@ final class ImageFetcher {
                         let cachedData = CachedURLResponse(response: httpResponse!, data: data)
                         AppDelegate.cache.storeCachedResponse(cachedData, for: request!)
                         fallthrough
-                        
                     case nil:
                         if let image = UIImage(data: data) {
                             self?.handler(image)
+                        } else {
+                            fallthrough
                         }
-                        
                     default:
                         self?.handler(nil)
                         break
                     }
-                    
                 }
             } else {
                 self?.handler(nil)

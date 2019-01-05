@@ -11,6 +11,7 @@ import Foundation
 final class ErrorMessage: ExpressibleByStringLiteral {
     enum ErrorType: ErrorMessage {
         case mailServices = "Mail services are not available.|"
+        case connectionError = "Image loading Failed|Couldn't load the image from its source."
     }
 
     typealias StringLiteralType = String
@@ -27,6 +28,7 @@ final class ErrorMessage: ExpressibleByStringLiteral {
 }
 
 extension ErrorMessage: Equatable {
+    
     static func == (lhs: ErrorMessage, rhs: ErrorMessage) -> Bool {
         return lhs.title == rhs.title && lhs.message == rhs.message
     }
