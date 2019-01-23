@@ -24,6 +24,7 @@ class MainTableViewModel {
     
     init(_ stateHandler: @escaping (State) -> Void) {
         self.stateHandler = stateHandler
+        
         fetchData()
     }
     
@@ -39,7 +40,8 @@ class MainTableViewModel {
         }
     }
     
-    var outputImages: [Image] { return filteredImages ?? images }
+    private var outputImages: [Image] { return filteredImages ?? images }
+    var imagesCount: Int { return outputImages.count }
     
     func fetchData() {
         loadingState = .startLoading

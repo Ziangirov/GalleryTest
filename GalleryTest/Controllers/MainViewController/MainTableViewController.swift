@@ -130,7 +130,7 @@ final class MainTableViewController: UITableViewController {
 extension MainTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return viewModel?.outputImages.count ?? 0
+        return viewModel?.imagesCount ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
